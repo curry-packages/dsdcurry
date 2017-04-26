@@ -1,0 +1,36 @@
+{
+    "name": "dsdcurry",
+    "version": "1.0.0",
+    "author": "Sergio Antoy, Michael Hanus",
+    "maintainer": "Michael Hanus <mh@informatik.uni-kiel.de>",
+    "synopsis": "A tool for declarative software development",
+    "category": [ "Programming", "Debugging" ],
+    "dependencies": {
+    },
+    "compilerCompatibility": {
+        "pakcs": ">= 1.10.0, < 2.0.0"
+    },
+    "license": "BSD-3-Clause",
+    "licenseFile": "LICENSE",
+    "configModule": "DSDCurryPackageConfig",
+    "executable": { "name": "dsdcurry",
+                    "main": "DSDCurryTransform"
+                  },
+    "testsuite": [
+        { "src-dir": "src",
+          "options": "-v",
+          "modules":  [ "DSDCurryTransform" ]
+        },
+        { "src-dir": "examples",
+          "options": "-v --nospec",
+          "modules":  [ "coin", "fac", "fib", "fibinfinite",
+                        "freevarassertion", "nats", "ndassertion",
+                        "quicksort", "quicksortpartition", "sortminrest",
+                        "sortspec", "wrongviolation" ]
+        }
+    ],
+     "source": {
+        "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/dsdcurry.git",
+        "tag": "$version"
+    }
+}
