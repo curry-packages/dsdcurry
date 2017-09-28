@@ -6,6 +6,7 @@
     "synopsis": "A tool for declarative software development",
     "category": [ "Programming", "Debugging" ],
     "dependencies": {
+        "abstract-curry" : ">= 1.0.0"
     },
     "compilerCompatibility": {
         "pakcs": ">= 1.10.0, < 2.0.0"
