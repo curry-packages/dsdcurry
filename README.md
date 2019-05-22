@@ -1,7 +1,7 @@
 DSDCurry: A tool for Declarative Software Development
 =====================================================
 
-DSDCurry is a transformation tool which generate from a Curry module
+DSDCurry is a transformation tool which generates from a Curry module
 containing pre/postconditions and specifications of operations
 a new Curry module where assertions are added to check
 these pre/postconditions and specifications.
@@ -21,7 +21,7 @@ How to use the tool:
 
 After installing the tool with
 
-    > cpm installapp dsdcurry
+    > cpm install dsdcurry
 
 (which installs the binary `dsdcurry` in `~/.cpm/bin`),
 you can use it as follows:
@@ -52,14 +52,16 @@ Assumptions:
 - Pre/postconditions or specifications are not required.
 
 - If there is a postcondition `f'post` but no precondition `f'pre`,
-  it is assumed that the precondition is defined as `(const True)`.
+  it is assumed that the precondition is defined as
+
+      f'pre ... = True
 
 - If a function `f` is defined by
 
     f :: ...<some type>...
     f = unknown
 
-  it will be considered as implemented, i.e., an implementation
+  it will be considered as "to be implemented", i.e., an implementation
   will be generated from a specification or postcondition (see below).
   Providing such an "unknown" definition might be necessary
   in larger programs where one wants to apply a function
@@ -119,17 +121,17 @@ Known problems:
 
   Solution: add restrictive type signature to pre/postconditions in
             your program or add a type signature for the function
-            with a body "`f = unknown`"
+            with a body `f = unknown`
 
 - Strict assertions make operations stricter, thus, changing the run-time
   behavior.
 
-  Solution: use lazy assertions (option "`-l`"), but this has the risk
+  Solution: use lazy assertions (option `-l`), but this has the risk
             that some assertions will never be checked
 
-  Better solution: use enforceable assertions (option "`-f`"), i.e.,
+  Better solution: use enforceable assertions (option `-f`), i.e.,
     evaluate assertion lazily but enforce their evaluation at the
-    end by evaluating the main expression "e" by "enforce e"
-    (or "enforceIO e" if e is an I/O action).
+    end by evaluating the main expression `e` by `enforce e`
+    (or `enforceIO e` if e is an I/O action).
 
 ------------------------------------------------------------------------

@@ -9,6 +9,7 @@ fac'pre n = n>=0
 fac'post _ v = v>0
 
 -- An implementation using Prelude operations:
+fac :: Int -> Int
 fac n = foldr (*) 1 [1..n]
 -- ..or no implementation:
 --fac = unknown
